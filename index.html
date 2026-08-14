@@ -78,6 +78,14 @@
   .price-card .btn{width:100%;font-size:17px}
   .guar{font-size:13px;color:var(--mute);margin-top:16px}
 
+  .pix-box{margin-top:24px;padding-top:24px;border-top:1px solid var(--line)}
+  .pix-step{font-size:13.5px;color:var(--mute);margin-bottom:12px;text-align:left}
+  .pix-qr{width:180px;height:180px;display:block;margin:0 auto 16px;border-radius:10px;background:#fff;padding:8px}
+  .pix-code-row{display:flex;gap:8px;margin-bottom:18px}
+  .pix-code{flex:1;min-width:0;background:#0f131b;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:10px 12px;font-size:12px;font-family:monospace}
+  .pix-copy{flex-shrink:0;background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:0 14px;cursor:pointer;font-family:'Space Grotesk';font-weight:600;font-size:13px}
+  .pix-copy:hover{border-color:var(--accent);color:var(--accent)}
+
   /* FAQ */
   .faq-item{border-bottom:1px solid var(--line);padding:22px 0}
   .faq-item h3{font-family:'Space Grotesk';font-size:17px;margin-bottom:8px}
@@ -156,12 +164,8 @@
     <p class="lead">Sem assinatura. Sem surpresa. Pague uma vez e use quantas vezes quiser.</p>
     <div class="price-card">
       <span class="best">Oferta de lançamento</span>
-      <div class="cur-toggle">
-        <button class="on" onclick="setCur('BR',this)">Brasil R$</button>
-        <button onclick="setCur('PT',this)">Portugal €</button>
-      </div>
-      <div class="old" id="oldPrice">De R$ 97</div>
-      <div class="amt" id="price">R$ 47</div>
+      <div class="old">De R$ 97</div>
+      <div class="amt">R$ 47</div>
       <ul class="price-list">
         <li>Ferramenta completa, ficheiro único</li>
         <li>Personalização com a sua marca</li>
@@ -169,8 +173,19 @@
         <li>Atualizações incluídas</li>
         <li>Pagamento único — sem mensalidade</li>
       </ul>
-      <a href="https://pay.kiwify.com.br/SEU-LINK-DE-CHECKOUT" class="btn btn-primary" target="_blank" rel="noopener">Comprar agora</a>
-      <p class="guar">Pagamento via Pix · Acesso imediato após a compra.</p>
+
+      <div class="pix-box">
+        <p class="pix-step">1. Escaneie o QR Code ou copie o código Pix</p>
+        <img class="pix-qr" src="data:image/png;base64,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" alt="QR Code Pix para pagamento de R$ 47,00">
+        <div class="pix-code-row">
+          <input id="pixCode" class="pix-code" readonly value="00020101021126550014br.gov.bcb.pix0114629389030001750215Orcamento Facil520400005303986540547.005802BR5907PrimeTI6014BELO HORIZONTE62120508ORCFACIL63043B52">
+          <button class="pix-copy" onclick="copyPix(this)">Copiar código</button>
+        </div>
+        <p class="pix-step">2. Pague R$ 47,00 · Chave Pix (CNPJ): PrimeTI</p>
+        <p class="pix-step">3. Envie o comprovante no WhatsApp para receber a ferramenta na hora</p>
+        <a class="btn btn-primary" href="https://wa.me/5531990656645?text=Ol%C3%A1!%20Acabei%20de%20pagar%20o%20Or%C3%A7amento%20F%C3%A1cil%20via%20Pix%2C%20segue%20o%20comprovante%3A" target="_blank" rel="noopener">Enviar comprovante no WhatsApp</a>
+      </div>
+      <p class="guar">Pagamento via Pix · Envio da ferramenta assim que confirmarmos o pagamento.</p>
     </div>
   </div>
 </section>
@@ -199,11 +214,15 @@
 </footer>
 
 <script>
-function setCur(c,el){
-  document.querySelectorAll('.cur-toggle button').forEach(b=>b.classList.remove('on'));
-  el.classList.add('on');
-  if(c==='BR'){document.getElementById('oldPrice').textContent='De R$ 97';document.getElementById('price').textContent='R$ 47'}
-  else{document.getElementById('oldPrice').textContent='De €39';document.getElementById('price').textContent='€19'}
+function copyPix(btn){
+  const input=document.getElementById('pixCode');
+  input.select();
+  input.setSelectionRange(0,99999);
+  navigator.clipboard.writeText(input.value).then(()=>{
+    const old=btn.textContent;
+    btn.textContent='Copiado!';
+    setTimeout(()=>{btn.textContent=old},1800);
+  }).catch(()=>{document.execCommand('copy')});
 }
 </script>
 </body>
