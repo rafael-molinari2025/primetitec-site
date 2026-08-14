@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orçamento Fácil · Propostas profissionais em 2 minutos, sem mensalidade</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+  :root{
+    --bg:#0d1017;--panel:#151922;--line:#242a36;--ink:#eef1f5;--mute:#9aa3b2;
+    --accent:#4ade80;--accent-2:#22c55e;--blue:#3b82f6;--card:#1a1f2b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-block;font-family:'Space Grotesk';font-weight:600;font-size:16px;padding:16px 34px;border-radius:10px;text-decoration:none;cursor:pointer;border:none;transition:transform .15s,box-shadow .15s}
+  .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#05230f}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(74,222,128,.3)}
+
+  /* HERO */
+  .hero{position:relative;padding:80px 0 70px;overflow:hidden;text-align:center}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% -5%,rgba(74,222,128,.13),transparent 60%);pointer-events:none}
+  .pill{display:inline-block;font-size:13px;font-weight:600;color:var(--accent);background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.25);padding:6px 15px;border-radius:100px;margin-bottom:26px}
+  h1{font-family:'Space Grotesk';font-weight:700;font-size:clamp(34px,5.6vw,58px);line-height:1.05;letter-spacing:-.02em;max-width:15ch;margin:0 auto 22px}
+  h1 span{background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .sub{font-size:clamp(17px,2.2vw,20px);color:var(--mute);max-width:56ch;margin:0 auto 36px}
+  .hero-cta{display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap}
+  .hero-note{font-size:13.5px;color:var(--mute);margin-top:18px}
+
+  .mock{margin:56px auto 0;max-width:880px;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.5);background:var(--panel)}
+  .mock-bar{display:flex;gap:7px;padding:13px 16px;background:#1b202b;border-bottom:1px solid var(--line)}
+  .mock-bar i{width:11px;height:11px;border-radius:50%;display:block}
+  .mock-bar i:nth-child(1){background:#ff5f57}.mock-bar i:nth-child(2){background:#febc2e}.mock-bar i:nth-child(3){background:#28c840}
+  .mock-body{display:grid;grid-template-columns:1fr 1.4fr;min-height:300px}
+  .mock-left{background:#12161f;padding:22px;border-right:1px solid var(--line)}
+  .mock-field{height:10px;background:#232935;border-radius:5px;margin-bottom:13px}
+  .mock-field.s{width:60%}.mock-field.m{width:85%}
+  .mock-right{padding:26px;background:#fff;color:#1a1d23}
+  .mr-head{display:flex;justify-content:space-between;margin-bottom:20px}
+  .mr-logo{font-family:'Space Grotesk';font-weight:700;font-size:17px}
+  .mr-badge{font-family:'Space Grotesk';font-weight:700;font-size:11px;letter-spacing:.1em;color:var(--blue);text-transform:uppercase}
+  .mr-line{height:8px;background:#eef0f3;border-radius:4px;margin-bottom:10px}
+  .mr-line.s{width:50%}.mr-line.m{width:75%}
+  .mr-total{margin-top:18px;padding-top:14px;border-top:2px solid #1a1d23;display:flex;justify-content:space-between;font-family:'Space Grotesk';font-weight:700}
+  .mr-total .g{color:var(--blue)}
+
+  /* PROBLEM */
+  section{padding:68px 0}
+  .center{text-align:center}
+  h2{font-family:'Space Grotesk';font-weight:700;font-size:clamp(26px,3.8vw,38px);letter-spacing:-.01em;line-height:1.1;margin-bottom:16px}
+  .lead{color:var(--mute);font-size:17px;max-width:52ch;margin:0 auto}
+  .pains{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:44px}
+  .pain{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:26px}
+  .pain .ic{font-size:24px;margin-bottom:12px}
+  .pain h3{font-family:'Space Grotesk';font-size:17px;margin-bottom:7px}
+  .pain p{color:var(--mute);font-size:14.5px}
+
+  /* FEATURES */
+  .features{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:44px}
+  .feat{display:flex;gap:14px;align-items:flex-start}
+  .feat .check{flex-shrink:0;width:26px;height:26px;border-radius:7px;background:rgba(74,222,128,.13);color:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700}
+  .feat h3{font-family:'Space Grotesk';font-size:16px;margin-bottom:4px}
+  .feat p{color:var(--mute);font-size:14px}
+
+  /* PRICE */
+  .price-card{max-width:440px;margin:44px auto 0;background:linear-gradient(180deg,var(--card),var(--panel));border:1px solid var(--line);border-radius:18px;padding:40px 36px;text-align:center;position:relative}
+  .price-card .best{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#05230f;font-size:12px;font-weight:700;padding:6px 16px;border-radius:100px;font-family:'Space Grotesk'}
+  .price-card .old{color:var(--mute);text-decoration:line-through;font-size:18px}
+  .price-card .amt{font-family:'Space Grotesk';font-weight:700;font-size:52px;line-height:1;margin:6px 0 4px}
+  .price-card .cur-toggle{display:inline-flex;gap:4px;background:#0f131b;border:1px solid var(--line);border-radius:9px;padding:4px;margin-bottom:22px}
+  .price-card .cur-toggle button{background:transparent;border:none;color:var(--mute);font-family:'Space Grotesk';font-weight:600;padding:6px 16px;border-radius:6px;cursor:pointer;font-size:14px}
+  .price-card .cur-toggle button.on{background:var(--accent);color:#05230f}
+  .price-list{list-style:none;text-align:left;margin:24px 0 28px}
+  .price-list li{padding:9px 0 9px 30px;position:relative;font-size:15px;border-bottom:1px solid var(--line)}
+  .price-list li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700}
+  .price-card .btn{width:100%;font-size:17px}
+  .guar{font-size:13px;color:var(--mute);margin-top:16px}
+
+  /* FAQ */
+  .faq-item{border-bottom:1px solid var(--line);padding:22px 0}
+  .faq-item h3{font-family:'Space Grotesk';font-size:17px;margin-bottom:8px}
+  .faq-item p{color:var(--mute);font-size:15px}
+
+  .final{text-align:center;background:radial-gradient(ellipse 60% 80% at 50% 0%,rgba(74,222,128,.1),transparent 60%)}
+  footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;color:var(--mute);font-size:13px}
+  footer a{color:var(--accent);text-decoration:none}
+  @media(max-width:700px){.mock-body{grid-template-columns:1fr}.mock-left{display:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="pill">Sem mensalidade · Pague uma vez, use para sempre</span>
+    <h1>Orçamentos que fecham negócio, em <span>2 minutos</span></h1>
+    <p class="sub">A ferramenta que transforma o seu preço num documento profissional que o cliente confia. Sem instalação, sem login, sem assinatura mensal. Abre no navegador e funciona.</p>
+    <div class="hero-cta">
+      <a href="#comprar" class="btn btn-primary">Quero a ferramenta</a>
+    </div>
+    <p class="hero-note">Funciona no computador e no telemóvel · Real, Euro e Dólar</p>
+
+    <div class="mock">
+      <div class="mock-bar"><i></i><i></i><i></i></div>
+      <div class="mock-body">
+        <div class="mock-left">
+          <div class="mock-field m"></div><div class="mock-field s"></div>
+          <div class="mock-field"></div><div class="mock-field m"></div>
+          <div class="mock-field s"></div><div class="mock-field"></div>
+          <div class="mock-field m"></div>
+        </div>
+        <div class="mock-right">
+          <div class="mr-head"><div class="mr-logo">A sua marca</div><div class="mr-badge">Orçamento</div></div>
+          <div class="mr-line m"></div><div class="mr-line"></div><div class="mr-line s"></div>
+          <div class="mr-line"></div><div class="mr-line m"></div>
+          <div class="mr-total"><span>Total</span><span class="g">R$ 2.400,00</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap center">
+    <h2>Quem faz orçamento no Word já sabe a dor</h2>
+    <p class="lead">Formatação que quebra, tabela que desalinha, layout que parece amador. E cada proposta leva meia hora que você não tem.</p>
+    <div class="pains">
+      <div class="pain"><div class="ic">😩</div><h3>Demora demais</h3><p>Meia hora formatando o que devia levar dois minutos. Tempo que sai do seu bolso.</p></div>
+      <div class="pain"><div class="ic">📉</div><h3>Parece amador</h3><p>Um orçamento mal apresentado passa a impressão errada — e faz o cliente hesitar.</p></div>
+      <div class="pain"><div class="ic">💸</div><h3>Sistemas cobram todo mês</h3><p>As alternativas online querem assinatura mensal para algo que devia ser simples.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="wrap">
+    <div class="center">
+      <h2>Tudo o que precisa. Nada que atrapalhe.</h2>
+      <p class="lead">Feito para prestadores de serviço, autónomos e pequenos negócios que querem passar uma imagem profissional sem complicação.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat"><div class="check">✓</div><div><h3>A sua marca</h3><p>Carregue o seu logótipo e escolha a cor. O documento fica com a sua identidade.</p></div></div>
+      <div class="feat"><div class="check">✓</div><div><h3>Cálculo automático</h3><p>Itens, quantidades, desconto e taxas somados sozinhos. Zero erro de conta.</p></div></div>
+      <div class="feat"><div class="check">✓</div><div><h3>PDF num clique</h3><p>Gere o PDF pronto para enviar por email ou WhatsApp na hora.</p></div></div>
+      <div class="feat"><div class="check">✓</div><div><h3>Três moedas</h3><p>Real, Euro e Dólar. Atenda clientes de qualquer país.</p></div></div>
+      <div class="feat"><div class="check">✓</div><div><h3>Guarda sozinho</h3><p>Os seus dados ficam salvos no navegador. Feche e volte quando quiser.</p></div></div>
+      <div class="feat"><div class="check">✓</div><div><h3>Sem instalação</h3><p>É um único ficheiro. Abre em qualquer navegador, funciona offline.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="comprar" class="center">
+  <div class="wrap">
+    <h2>Um preço. Para sempre.</h2>
+    <p class="lead">Sem assinatura. Sem surpresa. Pague uma vez e use quantas vezes quiser.</p>
+    <div class="price-card">
+      <span class="best">Oferta de lançamento</span>
+      <div class="cur-toggle">
+        <button class="on" onclick="setCur('BR',this)">Brasil R$</button>
+        <button onclick="setCur('PT',this)">Portugal €</button>
+      </div>
+      <div class="old" id="oldPrice">De R$ 97</div>
+      <div class="amt" id="price">R$ 47</div>
+      <ul class="price-list">
+        <li>Ferramenta completa, ficheiro único</li>
+        <li>Personalização com a sua marca</li>
+        <li>Real, Euro e Dólar</li>
+        <li>Atualizações incluídas</li>
+        <li>Pagamento único — sem mensalidade</li>
+      </ul>
+      <a href="https://pay.kiwify.com.br/SEU-LINK-DE-CHECKOUT" class="btn btn-primary" target="_blank" rel="noopener">Comprar agora</a>
+      <p class="guar">Pix ou cartão em até 12x · Acesso imediato após a compra.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="center" style="margin-bottom:34px">Perguntas frequentes</h2>
+    <div class="faq-item"><h3>Preciso instalar alguma coisa?</h3><p>Não. É um único ficheiro que abre no seu navegador — no computador ou no telemóvel. Não precisa de conta nem de internet para usar.</p></div>
+    <div class="faq-item"><h3>É mesmo pagamento único?</h3><p>Sim. Você paga uma vez e usa para sempre, sem mensalidade nem renovação. A ferramenta é sua.</p></div>
+    <div class="faq-item"><h3>Serve para o meu tipo de negócio?</h3><p>Serve para qualquer prestador de serviço ou pequeno negócio: freelancers, técnicos, consultores, comércio, prestadores de obra. Se você faz orçamentos, serve.</p></div>
+    <div class="faq-item"><h3>Consigo pôr o meu logótipo?</h3><p>Sim. Você carrega o seu logótipo e escolhe a cor principal. Cada orçamento sai com a sua identidade visual.</p></div>
+    <div class="faq-item"><h3>Funciona em Portugal e no Brasil?</h3><p>Sim. Tem seletor de moeda (Real, Euro e Dólar) e linguagem adaptada. Funciona nos dois mercados.</p></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Pare de perder tempo com orçamentos</h2>
+    <p class="lead" style="margin-bottom:30px">Comece a enviar propostas profissionais hoje mesmo.</p>
+    <a href="#comprar" class="btn btn-primary">Quero a ferramenta</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Orçamento Fácil · uma solução <a href="https://primetitec.com.br">RM PrimeTI Tecnologia</a></div>
+</footer>
+
+<script>
+function setCur(c,el){
+  document.querySelectorAll('.cur-toggle button').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+  if(c==='BR'){document.getElementById('oldPrice').textContent='De R$ 97';document.getElementById('price').textContent='R$ 47'}
+  else{document.getElementById('oldPrice').textContent='De €39';document.getElementById('price').textContent='€19'}
+}
+</script>
+</body>
+</html>
